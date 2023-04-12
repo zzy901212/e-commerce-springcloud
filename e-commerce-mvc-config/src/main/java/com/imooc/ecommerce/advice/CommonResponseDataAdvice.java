@@ -22,6 +22,7 @@ public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object>{
     @Override
     @SuppressWarnings("all")
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
+       /*如果这个注解存在的话，忽略相应*/
         if(methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)){
             return false;
         }
